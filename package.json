@@ -1,0 +1,26 @@
+{
+  "name": "profile-photo-maker",
+  "version": "1.0.0",
+  "description": "App for creating a profile photo for slack or linkedin",
+  "main": "index.js",
+  "scripts": {
+    "main": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekpatt/profile-photo-maker.git"
+  },
+  "keywords": [
+    "editor"
+  ],
+  "author": "Vivek Patt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekpatt/profile-photo-maker/issues"
+  },
+  "homepage": "https://github.com/vivekpatt/profile-photo-maker#readme",
+  "dependencies": {
+    "jimp": "^0.16.2"
+  }
+}
