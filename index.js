@@ -1,6 +1,6 @@
 var jimp = require("jimp");
-var DP_IN = "dp.png";
-var DP_OUT = "dp-circle.png";
+var DP_IN = "dp2.png";
+var DP_OUT = "dp-circle2.png";
 var BACKDROP = "backdrop.png";
 
 async function main() {
@@ -24,11 +24,13 @@ async function main() {
         let blue = this.bitmap.data[idx + 2];
 
         let threshold = 3;
+        let maxPixel = 210;
 
         if (
-          Math.abs(red - green) > threshold &&
-          Math.abs(red - blue) > threshold &&
-          Math.abs(green - blue) > threshold
+          (Math.abs(red - green) > threshold &&
+            Math.abs(red - blue) > threshold &&
+            Math.abs(green - blue) > threshold) ||
+          !(red > maxPixel && green > maxPixel && blue > maxPixel)
         ) {
           this.bitmap.data[idx + 0] = 0;
           this.bitmap.data[idx + 1] = 0;
@@ -37,6 +39,7 @@ async function main() {
       }
     );
 
+  // dp_mask.write("./output/bd.png");
   bd.resize(dp_mask.bitmap.width, dp_mask.bitmap.height).mask(dp_mask);
 
   dp.blit(bd, 0, 0)
